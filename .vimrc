@@ -17,6 +17,11 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" Plugin manger pathogen settings
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " -----------COMMON settings
 syntax on
 filetype plugin indent on
@@ -49,9 +54,6 @@ set tabstop=4
 " let Tlist_Ctags_Cmd='~/.vim/plugin/taglist.vim'
 " let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
-
-" =====Plugin:pathogen settings====
-execute pathogen#infect()
 
 " =====Plugin:syntastic
 let g:syntastic_check_on_open=1
