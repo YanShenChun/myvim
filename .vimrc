@@ -19,7 +19,7 @@ endif
 set nocompatible
 
 " Plugin manger pathogen settings
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 call pathogen#helptags()
 
 " -----------COMMON settings
