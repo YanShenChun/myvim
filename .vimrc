@@ -601,7 +601,6 @@
 " Functions {
 
     " Delete the original <InitializeDirectories> function 
-   
     " Initialize NERDTree as needed {
     function! NERDTreeInitAsNeeded()
         redir => bufoutput
@@ -653,6 +652,17 @@
     " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
     " }
 
+    " Search a string in a new window like notepad++ {
+    " Here is a workaround for Shell grep method.
+    " since it can't use <CR> to jump to the wanted position.
+    function! Search(pattern)
+        call setqflist([])
+        exe "bufdo vimgrepadd /".a:pattern."/j %"
+        exe "copen"
+    endfunction
+
+    command! -nargs=1 Search :call Search(<q-args>)
+    " }
 " }
 
 " Use fork vimrc if available {
